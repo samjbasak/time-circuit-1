@@ -55,14 +55,14 @@ number_to_display = (numbers, num_to_display, 'am')
 
 def time_to_display(time):
     if ' ' in time:
-        return '            ', 'am'
+        return time, '            ', 'am'
     day, month, year, hour, minute = time[:2], time[2:4], time[4:8], time[8:10], time[10:]
     if int(day) > 31:
-        return '            ', 'am'
+        return time, '            ', 'am'
     if int(month) > 12:
-        return '            ', 'am'
+        return time, '            ', 'am'
     if int(hour) > 23:
-        return '            ', 'am'
+        return time, '            ', 'am'
     elif int(hour) > 11:
         return (time, day + month + year + get_time.add_zero_to_datetimes(str(int(hour) - 12)) + minute, 'pm')
     else:
